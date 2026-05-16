@@ -13,6 +13,12 @@ func main() {
 	}
 
 	switch os.Args[1] {
+	case "init":
+		if len(os.Args) < 3 {
+			fmt.Println("Usage: task init <sqlite_path>")
+			return
+		}
+		cmd.InitDatabase(os.Args[2])
 	case "list":
 		cmd.ListTasks()
 	case "add":
